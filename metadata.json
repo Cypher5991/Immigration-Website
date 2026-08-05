@@ -1,6 +1,6 @@
 {
-  "name": "Immigration Website",
-  "description": "Immigration and Visa Consultancy Website staging deployment",
+  "name": "Naxa.One Immigration Website",
+  "description": "Naxa.One Immigration and Visa Consultancy Website staging deployment",
   "requestFramePermissions": [],
   "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
 }

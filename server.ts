@@ -45,7 +45,7 @@ app.get('/api/health', (req: Request, res: Response) => {
 
 app.get('/api/staging/info', (req: Request, res: Response) => {
   res.json({
-    appName: 'Global Dreams Immigration & Visa Consultants',
+    appName: 'Naxa.One Immigration & Visa Consultants',
     version: '1.0.0-maintenance',
     appUrl: process.env.APP_URL || 'http://localhost:3000',
     maintenanceMode: true,
@@ -71,14 +71,14 @@ app.post('/api/contact', async (req: Request, res: Response) => {
       return;
     }
 
-    console.log(`[GLOBAL DREAMS INQUIRY] Received consultation request from ${name} (${email || phone}) for ${visaType || 'General'} Visa to ${country || 'Any'}`);
+    console.log(`[NAXA.ONE INQUIRY] Received consultation request from ${name} (${email || phone}) for ${visaType || 'General'} Visa to ${country || 'Any'}`);
 
     let aiAdvice: string | null = null;
 
     const ai = getAIClient();
     if (ai) {
       try {
-        const prompt = `You are a senior visa & immigration specialist for Global Dreams Immigration Consultants. 
+        const prompt = `You are a senior visa & immigration specialist for Naxa.One Immigration Consultants. 
 Provide a concise, highly professional 2-sentence guidance note for an inquiry regarding a ${visaType || 'General'} visa to ${country || 'Canada/UK/Australia'}.
 User inquiry: "${message || 'Interested in visa application and eligibility evaluation.'}"`;
 
@@ -95,8 +95,8 @@ User inquiry: "${message || 'Interested in visa application and eligibility eval
 
     res.json({
       success: true,
-      message: 'Your inquiry has been received. A Global Dreams counselor will contact you within 24 hours.',
-      inquiryId: `GD-${Date.now().toString(36).toUpperCase()}`,
+      message: 'Your inquiry has been received. A Naxa.One counselor will contact you within 24 hours.',
+      inquiryId: `NX-${Date.now().toString(36).toUpperCase()}`,
       aiAssessment: aiAdvice,
     });
   } catch (error) {
@@ -109,7 +109,7 @@ User inquiry: "${message || 'Interested in visa application and eligibility eval
 const rootDir = process.cwd();
 
 // Maintenance Mode Routing Middleware:
-// Direct all HTML / Navigation requests to Global Dreams Coming Soon (index.html)
+// Direct all HTML / Navigation requests to Naxa.One Coming Soon (index.html)
 // Allow static assets (css, js, images, font files, etc.) and /api/* routes through.
 app.use((req: Request, res: Response, next: NextFunction) => {
   if (req.method !== 'GET') return next();
@@ -129,7 +129,7 @@ app.use((req: Request, res: Response, next: NextFunction) => {
   }
 
   // 3. For all internal page requests (/about, /services, /countries, /visas, /contact, etc.),
-  // internal navigation is disabled. Serve the Global Dreams coming soon page!
+  // internal navigation is disabled. Serve the Naxa.One coming soon page!
   const indexPath = path.join(rootDir, 'index.html');
   if (fs.existsSync(indexPath)) {
     return res.sendFile(indexPath);
@@ -141,13 +141,13 @@ app.use((req: Request, res: Response, next: NextFunction) => {
 // Serve static assets directory
 app.use(express.static(rootDir));
 
-// SPA Fallback to index.html (Global Dreams Coming Soon page)
+// SPA Fallback to index.html (Naxa.One Coming Soon page)
 app.get('*', (req: Request, res: Response) => {
   const indexPath = path.join(rootDir, 'index.html');
   if (fs.existsSync(indexPath)) {
     res.sendFile(indexPath);
   } else {
-    res.status(404).send('Global Dreams Website - Maintenance Mode');
+    res.status(404).send('Naxa.One Website - Maintenance Mode');
   }
 });
 
