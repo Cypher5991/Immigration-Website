@@ -1,0 +1,150 @@
+/* ==========================================================================
+   DEEP WINE & CRIMSON THEME (#4b0d13 & #8B1A1A) FOR ABOUT US PAGE
+   ========================================================================== */
+
+:root {
+  --maroon-dark: #35080c;
+  --maroon-primary: #4b0d13;
+  --maroon-rich: #8B1A1A;
+  --maroon-accent: #a52020;
+  --maroon-gold: #ffffff;
+  --maroon-bg-light: #fdfbfb;
+}
+
+body.page-about {
+  background-color: var(--maroon-bg-light);
+}
+
+body.page-about .hero {
+  background: linear-gradient(135deg, var(--maroon-dark) 0%, var(--maroon-primary) 100%);
+  border-bottom: 3px solid var(--maroon-rich);
+}
+
+body.page-about .hero::before {
+  background: radial-gradient(circle at 80% 20%, rgba(139, 26, 26, 0.3) 0%, transparent 60%);
+}
+
+body.page-about .top-bar {
+  background-color: var(--maroon-dark);
+  border-bottom-color: rgba(139, 26, 26, 0.4);
+}
+
+body.page-about .section-tag {
+  color: var(--maroon-rich);
+  background-color: rgba(139, 26, 26, 0.08);
+  border-color: rgba(139, 26, 26, 0.3);
+}
+
+body.page-about .trust-icon {
+  background: linear-gradient(135deg, var(--maroon-primary), var(--maroon-rich));
+  color: #ffffff;
+  filter: drop-shadow(0 4px 10px rgba(75, 13, 19, 0.35));
+}
+
+body.page-about .btn-primary {
+  background: linear-gradient(135deg, var(--maroon-rich), var(--maroon-primary));
+  color: #ffffff;
+  box-shadow: 0 8px 24px rgba(139, 26, 26, 0.35);
+}
+
+/* Curved Roadmap Timeline */
+.roadmap-container {
+  position: relative;
+  max-width: 900px;
+  margin: 3rem auto 0;
+  padding: 2rem 0;
+}
+
+.roadmap-svg-path {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.roadmap-steps-grid {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  gap: 3.5rem;
+}
+
+.roadmap-item {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  width: 50%;
+}
+
+.roadmap-item.left {
+  align-self: flex-start;
+  flex-direction: row;
+  text-align: right;
+  padding-right: 2rem;
+}
+
+.roadmap-item.right {
+  align-self: flex-end;
+  flex-direction: row-reverse;
+  text-align: left;
+  padding-left: 2rem;
+}
+
+.roadmap-badge {
+  min-width: 70px;
+  height: 70px;
+  background: linear-gradient(135deg, var(--maroon-primary), var(--maroon-rich));
+  color: #ffffff;
+  border: 3px solid #ffffff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 800;
+  font-size: 1.15rem;
+  box-shadow: 0 6px 16px rgba(75, 13, 19, 0.4);
+}
+
+.roadmap-content {
+  background-color: #ffffff;
+  padding: 1.5rem;
+  border-radius: 12px;
+  border: 1px solid rgba(139, 26, 26, 0.2);
+  box-shadow: var(--shadow-md);
+  transition: transform var(--transition-fast);
+}
+
+.roadmap-content:hover {
+  transform: translateY(-4px);
+  border-color: var(--maroon-rich);
+}
+
+.roadmap-year {
+  display: inline-block;
+  font-weight: 700;
+  color: var(--maroon-rich);
+  font-size: 0.9rem;
+  margin-bottom: 0.25rem;
+}
+
+/* Full photo styling without tight cuts */
+.team-photo-full {
+  width: 100%;
+  height: 280px;
+  object-fit: cover;
+  border-radius: 12px 12px 0 0;
+}
+
+@media (max-width: 768px) {
+  .roadmap-item {
+    width: 100% !important;
+    flex-direction: column !important;
+    text-align: center !important;
+    padding: 0 !important;
+  }
+}
